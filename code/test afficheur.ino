@@ -31,45 +31,84 @@ void setup() {
  
   delay(1000);
 }
- 
-void loop(){
 
-    // set the cursor to column 0, line 1
-    // (note: line 1 is the second row, since counting begins with 0):
-    lcd.setCursor(0, 1);
-    // print the number of seconds since reset:
- 
-    delay(100);
-    
-    // read the state of the pushbutton value:
-    buttonState = digitalRead(buttonPin);
+void humi()
+{
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
   
-    float h = dht.readHumidity();
-    float t = dht.readTemperature();
-
-    if (isnan(t) || isnan(h)) 
+  if (isnan(t) || isnan(h)) 
     {
-        lcd.print("Failed to read from DHT");
+      lcd.print("Erreur de lecture DHT");
     }
-    else if (h >= 32)
+    else
+    {
+      lcd.print("Aucun Problème !");
+    }
+  
+  if (h >= 32)
     {
       lcd.clear();
+      lcd.setRGB(255, 0, 0);
       lcd.print("Humidity: ");
-        lcd.print(h);
-        lcd.println("%\t");
-        lcd.setRGB(255, 0, 0);
-        delay(200);
-        lcd.setRGB(0, 0, 0);
-        delay(200);
-        lcd.setRGB(255, 0, 0);
+      lcd.print(h);
+      lcd.println("%\t");
+      lcd.setRGB(255, 0, 0);
+      delay(200);
+      lcd.setRGB(0, 0, 0);
+      delay(200);
+      lcd.setRGB(255, 0, 0);
     }
     else 
     {
-        // turn LED off:
-        lcd.clear();
-        lcd.setRGB(81, 255, 0);
-        lcd.print("Humidity: ");
-        lcd.print(h);
-        lcd.println("%\t");
+      lcd.clear();
+      lcd.setRGB(81, 255, 0);
+      lcd.print("Humidity: ");
+      lcd.print(h);
+      lcd.println("%\t");
     }
+}
+
+void temp()
+{
+  float t = dht.readTemperature();
+  
+  if (t >= 28)
+    {
+      lcd.clear();
+      lcd.setRGB(255, 0, 0);
+      lcd.print("Temperature: "); 
+      lcd.print(t);
+      lcd.println(" *C");
+      lcd.setRGB(255, 0, 0);
+      delay(200);
+      lcd.setRGB(0, 0, 0);
+      delay(200);
+      lcd.setRGB(255, 0, 0);
+    }
+    else 
+    {
+      lcd.clear();
+      lcd.setRGB(81, 255, 0);
+      lcd.print("Temperature: "); 
+      lcd.print(t);
+      lcd.println(" *C");
+    }
+}
+ 
+void loop(){
+  
+  lcd.setCursor(0, 1);
+  delay(100);
+  
+  buttonState = digitalRead(buttonPin);
+  
+  if (buttonState == 0)
+  {
+    humi();
+  }
+  else if (buttonState == 1)
+  {
+    temp();
+  }
 }

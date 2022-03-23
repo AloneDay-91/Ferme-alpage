@@ -24,10 +24,10 @@ void setup() {
   // set up the LCD's number of columns and rows:
   lcd.begin(16, 2);
  
-  lcd.setRGB(81, 255, 0);
+  lcd.setRGB(0, 201, 255);
  
   // Print a message to the LCD.
-  lcd.print("Aucun Problème !");
+  lcd.print("Initialisations...");
  
   delay(1000);
 }
@@ -38,35 +38,35 @@ void humi()
   float t = dht.readTemperature();
   
   if (isnan(t) || isnan(h)) 
-    {
-      lcd.print("Erreur de lecture DHT");
-    }
-    else
-    {
-      lcd.print("Aucun Problème !");
-    }
+  {
+    lcd.print("Erreur de lecture DHT");
+  }
+  else
+  {
+    lcd.print("Aucun Problème !");
+  }
   
   if (h >= 32)
-    {
-      lcd.clear();
-      lcd.setRGB(255, 0, 0);
-      lcd.print("Humidity: ");
-      lcd.print(h);
-      lcd.println("%\t");
-      lcd.setRGB(255, 0, 0);
-      delay(200);
-      lcd.setRGB(0, 0, 0);
-      delay(200);
-      lcd.setRGB(255, 0, 0);
-    }
-    else 
-    {
-      lcd.clear();
-      lcd.setRGB(81, 255, 0);
-      lcd.print("Humidity: ");
-      lcd.print(h);
-      lcd.println("%\t");
-    }
+  {
+    lcd.clear();
+    lcd.setRGB(255, 0, 0);
+    lcd.print("Humidite: ");
+    lcd.print(h);
+    lcd.println("%\t");
+    lcd.setRGB(255, 0, 0);
+    delay(200);
+    lcd.setRGB(0, 0, 0);
+    delay(200);
+    lcd.setRGB(255, 0, 0);
+  }
+  else 
+  {
+    lcd.clear();
+    lcd.setRGB(81, 255, 0);
+    lcd.print("Humidite: ");
+    lcd.print(h);
+    lcd.println("%\t");
+  }
 }
 
 void temp()
@@ -74,26 +74,26 @@ void temp()
   float t = dht.readTemperature();
   
   if (t >= 28)
-    {
-      lcd.clear();
-      lcd.setRGB(255, 0, 0);
-      lcd.print("Temperature: "); 
-      lcd.print(t);
-      lcd.println(" *C");
-      lcd.setRGB(255, 0, 0);
-      delay(200);
-      lcd.setRGB(0, 0, 0);
-      delay(200);
-      lcd.setRGB(255, 0, 0);
-    }
-    else 
-    {
-      lcd.clear();
-      lcd.setRGB(81, 255, 0);
-      lcd.print("Temperature: "); 
-      lcd.print(t);
-      lcd.println(" *C");
-    }
+  {
+    lcd.clear();
+    lcd.setRGB(255, 0, 0);
+    lcd.print("Temperature: "); 
+    lcd.print(t);
+    lcd.println(" *C");
+    lcd.setRGB(255, 0, 0);
+    delay(200);
+    lcd.setRGB(0, 0, 0);
+    delay(200);
+    lcd.setRGB(255, 0, 0);
+  }
+  else 
+  {
+    lcd.clear();
+    lcd.setRGB(81, 255, 0);
+    lcd.print("Temperature: "); 
+    lcd.print(t);
+    lcd.println(" *C");
+  }
 }
  
 void loop(){

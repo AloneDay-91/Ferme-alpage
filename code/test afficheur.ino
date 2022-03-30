@@ -30,22 +30,27 @@ void setup() {
   lcd.print("Initialisations...");
  
   delay(1000);
-}
-
-void humi()
-{
+  
   float h = dht.readHumidity();
   float t = dht.readTemperature();
   
   if (isnan(t) || isnan(h)) 
   {
+    lcd.clear();
     lcd.print("Erreur de lecture DHT");
   }
   else
   {
-    lcd.print("Aucun Problème !");
+    lcd.clear();
+    lcd.print("Aucun Probleme !");
   }
+  delay(1000);
   
+}
+
+void humi()
+{ 
+    float h = dht.readHumidity();
   if (h >= 32)
   {
     lcd.clear();
@@ -70,9 +75,8 @@ void humi()
 }
 
 void temp()
-{
-  float t = dht.readTemperature();
-  
+{ 
+    float t = dht.readTemperature();
   if (t >= 28)
   {
     lcd.clear();

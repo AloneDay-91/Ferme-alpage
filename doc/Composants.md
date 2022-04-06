@@ -7,4 +7,4 @@
 - [ ] <a href="https://www.seeedstudio.com/Grove-Relay-p-769.html">Grove Relay</a>
 - [ ] <a href="https://www.seeedstudio.com/depot/G14-Water-Flow-Sensor-p-1345.html">Grove Water Flow Sensor</a>
 - [ ] <a href="https://www.seeedstudio.com/12V-DC-Water-Pump-p-1946.html">12V Water Pump</a>
-- [ ] <a href="https://www.seeedstudio.com/Grove-Water-Level-Sensor-10CM-p4443.htmlqueryID=e49360cff272aa48470f4564e084ea6e&objectID=4443&indexName=bazaar_retailer_products">Grove - Water Level Sensor (10CM)</a>
+- [ ] <a href="https://www.seeedstudio.com/Grove-Water-Level-Sensor-10CM-p-4443.html?queryID=e49360cff272aa48470f4564e084ea6e&objectID=4443&indexName=bazaar_retailer_products">Grove - Water Level Sensor (10CM)</a>

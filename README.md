@@ -15,4 +15,4 @@ Le projet consiste a permettre une alimentation en eau d'une ferme d'alpage pour
 git clone https://github.com/AloneDay-91/Ferme-alpage
 ```
 ## Date et revue de projet
-### Aucune pour l'instant
+- [ ] Jeudi 19 Mai
